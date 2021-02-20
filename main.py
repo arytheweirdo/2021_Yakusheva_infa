@@ -1,28 +1,22 @@
-import pygame
-from pygame.draw import *
+import pygame as pg
+import sys
 
-pygame.init()
+sc = pg.display.set_mode((300, 300))
+sc.fill((200, 255, 200))
 
-FPS = 30
-screen = pygame.display.set_mode((400, 400))
+surf1 = pg.Surface((200, 200))
+surf1.fill((220, 200, 0))  # желтая
+surf2 = pg.Surface((100, 100))
+surf2.fill((255, 255, 255))  # белая
 
-rect(screen, (255, 0, 255), (100, 100, 200, 200))
-rect(screen, (0, 0, 255), (100, 100, 200, 200), 5)
-polygon(screen, (255, 255, 0), [(100,100), (200,50),
-                               (300,100), (100,100)])
-polygon(screen, (0, 0, 255), [(100,100), (200,50),
-                               (300,100), (100,100)], 5)
-circle(screen, (0, 255, 0), (200, 175), 50)
-circle(screen, (255, 255, 255), (200, 175), 50, 5)
+rect = pg.Rect((70, 20, 0, 0))
 
-pygame.display.update()
-clock = pygame.time.Clock()
-finished = False
+surf1.blit(surf2, rect)
+sc.blit(surf1, rect)
 
-while not finished:
-    clock.tick(FPS)
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            finished = True
+pg.display.update()
 
-pygame.quit()
+while 1:
+    for i in pg.event.get():
+        if i.type == pg.QUIT:
+            sys.exit()
