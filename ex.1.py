@@ -1,24 +1,17 @@
-import pygame
-from pygame.draw import *
+import math
+from PIL import Image, ImageDraw, ImageFont
 
-# После импорта библиотеки, необходимо её инициализировать:
-pygame.init()
+x=250 #центр полигона (x)
+y=250 #центр полигона (y)
+n=5   #число сторон полигона
+r=200  #радиус окружности в которую вписываем полигон
+#получаем координаты вершин
+coords=[(x + r * math.cos(2 * math.pi * i / n), y + r * math.sin(2 * math.pi * i / n)) for i in range(1, n+1)]
 
-# И создать окно:
-screen = pygame.display.set_mode((400, 400))
+img = Image.new("RGB",(500,500), (255,255,255))
+draw = ImageDraw.Draw(img)
 
-rect1 = pygame.Rect((0, 0, 400, 200))
-rect2 = pygame.Rect((200, 400, 400, 200))
-print(rect1.bottomright)  # (30, 30)
-print(rect2.bottomright)  # (60, 60)
-# после чего, чтобы они отобразились на экране, экран нужно обновить:
-pygame.display.update()
-# Эту же команду нужно будет повторять, если на экране происходят изменения.
-
-# Наконец, нужно создать основной цикл, в котором будут отслеживаться
-# происходящие события.
-# Пока единственное событие, которое нас интересует - выход из программы.
-while True:
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            pygame.quit()
+draw.polygon((coords), fill="lightblue",outline =(255,0,0))
+unicode_font = ImageFont.truetype("arial.ttf", 22)
+draw.text ((100,40), u'Это многоугольник', font=unicode_font, fill='red' )
+img.show()
