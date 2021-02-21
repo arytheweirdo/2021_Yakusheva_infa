@@ -115,15 +115,15 @@ z1 = 0
 R2 = 38
 x0 = 50
 y0 = 50
-
+pygame.draw.circle(screen, YELLOW, (x0, y0), 39)
 for f in range(n):
     if i == 0:
         x2 = x0 + R1 * math.cos(0)
         y2 = y0 + R1 * math.sin(0)
-        x3 = x0 + math.cos(a)
-        y3 = y0 + math.sin(a)
-        x4 = x0 + math.cos(a / 2)
-        y4 = y0 + math.sin(a / 2)
+        x3 = x0 + R1*math.cos(a)
+        y3 = y0 + R1*math.sin(a)
+        x4 = x0 + R2*math.cos(a / 2)
+        y4 = y0 + R2*math.sin(a / 2)
         z1 = a / 2
 
     if i > 0:
@@ -131,11 +131,11 @@ for f in range(n):
         z1 = z1 + a
         x2 = x0 + R1 * math.cos(z)
         y2 = y0 + R1 * math.sin(z)
-        x3 = x0 + math.cos(z - a)
-        y3 = y0 + math.sin(z - a)
-        x4 = x0 + math.cos(z1)
-        y4 = y0 + math.sin(z1)
-    pygame.draw.aalines(screen, YELLOW, False, [[x2, y2], [x4, y4], [x3, y3]])
+        x3 = x0 + R1*math.cos(z - a)
+        y3 = y0 + R1*math.sin(z - a)
+        x4 = x0 + R2*math.cos(z1)
+        y4 = y0 + R2*math.sin(z1)
+    pygame.draw.aalines(screen, WHITE, False, [[x2, y2], [x4, y4], [x3, y3]])
 
 
 
