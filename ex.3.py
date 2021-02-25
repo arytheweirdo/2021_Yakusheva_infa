@@ -26,118 +26,165 @@ y1 = 50
 xx = 491
 yy = 110
 Rr = 20
-yy1=60
-xx1=520
-xxx=350
-yyy=70
-
-
-pygame.draw.rect(screen, LIGHT_BLUE, (0, 0, 600, 195))
-pygame.draw.rect(screen, GREEN, (0, 150, 600, 205))
-
-pygame.draw.rect(screen, Tan4, (80, 130, 90, 90))
-pygame.draw.rect(screen, Cyan4, (110, 150, 30, 30))
-pygame.draw.polygon(screen, Firebrick4, [[80, 130], [170, 130], [125, 100]])
-
-pygame.draw.rect(screen, Tan4, (350, 140, 60, 60))
-pygame.draw.rect(screen, Cyan4, (370, 160, 20, 20))
-pygame.draw.polygon(screen, Firebrick4, [[350, 140], [410, 140], [380, 120]])
-
-pygame.draw.rect(screen, BLACK, (230, 120, 10, 80))
-pygame.draw.circle(screen, Green4, (x - R / 2, y + 10), 2 * R / 3)
-pygame.draw.circle(screen, BLACK, (x - R / 2, y + 10), 2 * R / 3, 1)
-x = x + 10
-y = y + 3
-for i in range(5):
-    pygame.draw.circle(screen, Green4, (x, y), 2 * R / 3)
-    pygame.draw.circle(screen, BLACK, (x, y), 2 * R / 3, 1)
-    x = x + R * math.cos(phi)
-    y = y + R * math.sin(phi)
-    phi = phi + 2 / 5 * math.pi
-
-pygame.draw.rect(screen, BLACK, (480, 130, 7, 60))
-pygame.draw.circle(screen, Green4, (xx - R / 2, yy + 10), 2 * Rr / 3)
-pygame.draw.circle(screen, BLACK, (xx - R / 2, yy + 10), 2 * Rr / 3, 1)
-xx = xx + 10
-yy = yy + 3
-for i in range(5):
-    pygame.draw.circle(screen, Green4, (xx, yy), 2 * Rr / 3)
-    pygame.draw.circle(screen, BLACK, (xx, yy), 2 * Rr / 3, 1)
-    xx = xx + Rr * math.cos(phi)
-    yy = yy + Rr * math.sin(phi)
-    phi = phi + 2 / 5 * math.pi
-
-
-pygame.draw.circle(screen, WHITE, (x1, y1), 2 * R / 3)
-pygame.draw.circle(screen, BLACK, (x1, y1), 2 * R / 3, 1)
-for j in range(6):
-    if j == 1 or j == 3 or j == 5:
-        x1 = x1 + 2 * R / 3
-    if j == 2:
-        y1 = y1 - 2 * R / 3
-    if j == 4:
-        y1 = y1 + 2 * R / 3
-    pygame.draw.circle(screen, WHITE, (x1, y1), 2 * R / 3)
-    pygame.draw.circle(screen, BLACK, (x1, y1), 2 * R / 3, 1)
-
-
-pygame.draw.circle(screen, WHITE, (xx1, yy1), 2 * R / 3)
-pygame.draw.circle(screen, BLACK, (xx1, yy1), 2 * R / 3, 1)
-for j in range(6):
-    if j == 1 or j == 3 or j == 5:
-        xx1 = xx1 + 2 * R / 3
-    if j == 2:
-        yy1 = yy1 - 2 * R / 3
-    if j == 4:
-        yy1 = yy1 + 2 * R / 3
-    pygame.draw.circle(screen, WHITE, (xx1, yy1), 2 * R / 3)
-    pygame.draw.circle(screen, BLACK, (xx1, yy1), 2 * R / 3, 1)
-
-
-pygame.draw.circle(screen, WHITE, (xxx, yyy), 2 * Rr/ 3)
-pygame.draw.circle(screen, BLACK, (xxx, yyy), 2 * Rr / 3, 1)
-for j in range(6):
-    if j == 1 or j == 3 or j == 5:
-        xxx = xxx + 2 * Rr / 3
-    if j == 2:
-        yyy = yyy - 2 * Rr / 3
-    if j == 4:
-        yyy = yyy + 2 * Rr / 3
-    pygame.draw.circle(screen, WHITE, (xxx, yyy), 2 * Rr / 3)
-    pygame.draw.circle(screen, BLACK, (xxx, yyy), 2 * Rr / 3, 1)
-
-
-n = 30
-a = 2 * math.pi / n
+yy1 = 60
+xx1 = 520
+xxx = 350
+yyy = 70
+n_number = 30
+a_angle = 2 * math.pi / n_number
 R1 = 40
-z = 0
-z1 = 0
 R2 = 38
 x0 = 50
 y0 = 50
-pygame.draw.circle(screen, YELLOW, (x0, y0), 39)
-for f in range(n):
-    if i == 0:
-        x2 = x0 + R1 * math.cos(0)
-        y2 = y0 + R1 * math.sin(0)
-        x3 = x0 + R1*math.cos(a)
-        y3 = y0 + R1*math.sin(a)
-        x4 = x0 + R2*math.cos(a / 2)
-        y4 = y0 + R2*math.sin(a / 2)
-        z1 = a / 2
+base_x1 = 80
+base_y1 = 130
+base_w1 = 90
+base_h1 = 90
+win_x1 = 110
+win_y1 = 150
+win_w1 = 30
+win_h1 = 30
+r1_x1 = 80
+r1_y1 = 130
+r2_x1 = 170
+r2_y1 = 130
+r3_x1 = 125
+r3_y1 = 100
+base_x2 = 350
+base_y2 = 140
+base_w2 = 60
+base_h2 = 60
+win_x2 = 370
+win_y2 = 160
+win_w2 = 20
+win_h2 = 20
+r1_x2 = 350
+r1_y2 = 140
+r2_x2 = 410
+r2_y2 = 140
+r3_x2 = 380
+r3_y2 = 120
 
-    if i > 0:
-        z = z + a
-        z1 = z1 + a
-        x2 = x0 + R1 * math.cos(z)
-        y2 = y0 + R1 * math.sin(z)
-        x3 = x0 + R1*math.cos(z - a)
-        y3 = y0 + R1*math.sin(z - a)
-        x4 = x0 + R2*math.cos(z1)
-        y4 = y0 + R2*math.sin(z1)
-    pygame.draw.aalines(screen, WHITE, False, [[x2, y2], [x4, y4], [x3, y3]])
+
+def draw_house(base_x, base_y, base_w, base_h, win_x, win_y, win_w, win_h, r1_x, r1_y, r2_x, r2_y, r3_x, r3_y):
+    """
+    Draws a house
+    :param base_x: x coordinate of the base
+    :param base_y: y coordinate of the base
+    :param base_w: width of the base
+    :param base_h: height of the base
+    :param win_x: x coordinate of the window
+    :param win_y: y coordinate of the window
+    :param win_w: width of the window
+    :param win_h: height of the window
+    :param r1_x: x of the edge 1 of the roof
+    :param r1_y: y of the edge 1 of the roof
+    :param r2_x: x of the edge 2 of the roof
+    :param r2_y: y of the edge 2 of the roof
+    :param r3_x: x of the edge 3 of the roof
+    :param r3_y: y of the edge 3 of the roof
+    :return: None
+    """
+    pygame.draw.rect(screen, Tan4, (base_x, base_y, base_w, base_h))
+    pygame.draw.rect(screen, Cyan4, (win_x, win_y, win_w, win_h))
+    pygame.draw.polygon(screen, Firebrick4, [[r1_x, r1_y], [r2_x, r2_y], [r3_x, r3_y]])
 
 
+def draw_tree(coord_x, coord_y, radius):
+    """
+    Draws the leaves of the tree
+    :param coord_x: x coordinate of the centre
+    :param coord_y: y coordinate of the centre
+    :param radius: radius
+    :return: None
+    """
+    angle = 3 / 5 * math.pi
+    pygame.draw.circle(screen, Green4, (coord_x - radius / 2, coord_y + 10), 2 * radius / 3)
+    pygame.draw.circle(screen, BLACK, (coord_x - radius / 2, coord_y + 10), 2 * radius / 3, 1)
+    coord_x = coord_x + 10
+    coord_y = coord_y + 3
+    for k in range(5):
+        pygame.draw.circle(screen, Green4, (coord_x, coord_y), 2 * radius / 3)
+        pygame.draw.circle(screen, BLACK, (coord_x, coord_y), 2 * radius / 3, 1)
+        coord_x = coord_x + radius * math.cos(angle)
+        coord_y = coord_y + radius * math.sin(angle)
+        angle = angle + 2 / 5 * math.pi
+
+
+def draw_background():
+    """
+    Draws the background
+    :return: None
+    """
+    pygame.draw.rect(screen, LIGHT_BLUE, (0, 0, 600, 195))
+    pygame.draw.rect(screen, GREEN, (0, 150, 600, 205))
+
+
+def draw_sun():
+    """
+    Draws the sun
+    :return: None
+    """
+    z_angle = 0
+    z1_angle = 0
+    pygame.draw.circle(screen, YELLOW, (x0, y0), 39)
+    for i in range(n_number):
+        if i == 0:
+            x2 = x0 + R1 * math.cos(0)
+            y2 = y0 + R1 * math.sin(0)
+            x3 = x0 + R1*math.cos(a_angle)
+            y3 = y0 + R1*math.sin(a_angle)
+            x4 = x0 + R2*math.cos(a_angle / 2)
+            y4 = y0 + R2*math.sin(a_angle / 2)
+            z1_angle = a_angle / 2
+            pygame.draw.aalines(screen, WHITE, False, [[x2, y2], [x4, y4], [x3, y3]])
+        if i > 0:
+            z_angle = z_angle + a_angle
+            z1_angle = z1_angle + a_angle
+            x2 = x0 + R1 * math.cos(z_angle)
+            y2 = y0 + R1 * math.sin(z_angle)
+            x3 = x0 + R1*math.cos(z_angle - a_angle)
+            y3 = y0 + R1*math.sin(z_angle - a_angle)
+            x4 = x0 + R2*math.cos(z1_angle)
+            y4 = y0 + R2*math.sin(z1_angle)
+            pygame.draw.aalines(screen, WHITE, False, [[x2, y2], [x4, y4], [x3, y3]])
+
+
+def draw_clouds(radius, x_coordinate, y_coordinate):
+    """
+    Draws clouds
+    :param radius: radius of the circle
+    :param x_coordinate: x coordinate of the centre
+    :param y_coordinate: y coordinate of the centre
+    :return: None
+    """
+    pygame.draw.circle(screen, WHITE, (x_coordinate, y_coordinate), 2 * radius / 3)
+    pygame.draw.circle(screen, BLACK, (x_coordinate, y_coordinate), 2 * radius / 3, 1)
+    for j in range(6):
+        if j == 1 or j == 3 or j == 5:
+            x_coordinate = x_coordinate + 2 * radius / 3
+        if j == 2:
+            y_coordinate = y_coordinate - 2 * radius / 3
+        if j == 4:
+            y_coordinate = y_coordinate + 2 * radius / 3
+        pygame.draw.circle(screen, WHITE, (x_coordinate, y_coordinate), 2 * radius / 3)
+        pygame.draw.circle(screen, BLACK, (x_coordinate, y_coordinate), 2 * radius / 3, 1)
+
+
+draw_background()
+draw_house(base_x1, base_y1, base_w1, base_h1, win_x1, win_y1, win_w1, win_h1, r1_x1, r1_y1, r2_x1, r2_y1, r3_x1, r3_y1)
+draw_house(base_x2, base_y2, base_w2, base_h2, win_x2, win_y2, win_w2, win_h2, r1_x2, r1_y2, r2_x2, r2_y2, r3_x2, r3_y2)
+
+pygame.draw.rect(screen, BLACK, (230, 120, 10, 80))
+draw_tree(x, y, R)
+pygame.draw.rect(screen, BLACK, (480, 130, 7, 60))
+draw_tree(xx, yy, Rr)
+
+draw_clouds(R, x1, y1)
+draw_clouds(R, xx1, yy1)
+draw_clouds(Rr, xxx, yyy)
+
+draw_sun()
 
 pygame.display.update()
 
